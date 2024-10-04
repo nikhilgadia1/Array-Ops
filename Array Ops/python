@@ -1,0 +1,42 @@
+def create_array():
+    return [int(x) for x in input("Enter elements separated by space: ").split()]
+
+def display_array(array):
+    print("Array:", array)
+
+def insert_element(array):
+    elem = int(input("Element to insert: "))
+    pos = int(input("Position to insert: "))
+    if 0 <= pos <= len(array):
+        array.insert(pos, elem)
+    else:
+        print("Invalid position!")
+    return array
+
+def delete_element(array):
+    pos = int(input("Position to delete: "))
+    if 0 <= pos < len(array):
+        array.pop(pos)
+    else:
+        print("Invalid position!")
+    return array
+
+def main():
+    array = []
+    while True:
+        choice = input("\nMenu:\n1. Create Array\n2. Display Array\n3. Insert Element\n4. Delete Element\n5. Exit\nChoice: ")
+        if choice == '1':
+            array = create_array()
+        elif choice == '2':
+            display_array(array)
+        elif choice == '3':
+            array = insert_element(array)
+        elif choice == '4':
+            array = delete_element(array)
+        elif choice == '5':
+            break
+        else:
+            print("Invalid choice!")
+
+if __name__ == "__main__":
+    main()

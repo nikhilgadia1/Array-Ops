@@ -1,0 +1,36 @@
+def create_array(n):
+    return [int(input(f"Enter element {i+1}: ")) for i in range(n)]
+
+def display_array(arr):
+    print("Array Elements: ", arr)
+
+def insert_element(arr, elem, pos):
+    arr.insert(pos, elem)
+
+def delete_element(arr, pos):
+    arr.pop(pos)
+
+def menu():
+    arr = []
+    while True:
+        print("\nMenu:\n1. Create Array\n2. Display Array\n3. Insert Element\n4. Delete Element\n5. Exit")
+        choice = int(input("Enter your choice: "))
+        if choice == 1:
+            n = int(input("Enter number of elements: "))
+            arr = create_array(n)
+        elif choice == 2:
+            display_array(arr)
+        elif choice == 3:
+            elem = int(input("Enter element to insert: "))
+            pos = int(input("Enter position to insert at: "))
+            insert_element(arr, elem, pos)
+        elif choice == 4:
+            pos = int(input("Enter position to delete from: "))
+            delete_element(arr, pos)
+        elif choice == 5:
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    menu()
